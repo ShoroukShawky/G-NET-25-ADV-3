@@ -31,5 +31,11 @@ namespace ADV03
             Console.WriteLine($"{colName} : [{string.Join(", ", items)}]");
 
         }
+
+        public static void PrintQueue<T>(string queueName, Queue<T> items)
+        {
+            Console.WriteLine($"{queueName} : [{string.Join(", ", items)}]");
+
+        }
     }
 }

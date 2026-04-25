@@ -118,33 +118,59 @@ namespace ADV03
             #endregion
 
             #region Ex04
-            HashSet<string> set = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            //HashSet<string> set = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            //{
+            //     "ahmed@test.com", "AHMED@test.com", "sara@test.com", "Sara@Test.Com"
+
+            //};
+
+            //Console.WriteLine(set.Count); //2 , StringComparer.OrdinalIgnoreCase makes it treat strings with different letter cases as equal
+
+            //HashSet<int> SetA = [1, 2, 3 , 4 , 5];
+            //HashSet<int> SetB = [4, 5 , 6 , 7 ,8];
+
+            //var union = new HashSet<int>(SetA);
+            //union.UnionWith(SetB);
+            //ConsoleHelper.PrintHashSet("Union" , union);
+
+            //var Intersec = new HashSet<int>(SetA);
+            //Intersec.IntersectWith(SetB);
+            //ConsoleHelper.PrintHashSet("Intersec", Intersec);
+
+
+            //var Except = new HashSet<int>(SetA);
+            //Except.ExceptWith(SetB);
+            //ConsoleHelper.PrintHashSet("Except", Except);
+
+            //HashSet<int> SetC = [1, 2];
+            //Console.Write("[1,2] is subset of setA? ");
+            //Console.WriteLine(SetC.IsSubsetOf(SetA));
+            #endregion
+
+            #region Ex05
+            Queue<string> queue = new();
+            queue.Enqueue("Report.pdf");
+            queue.Enqueue("Invoice.pdf");
+            queue.Enqueue("Letter.docx");
+            queue.Enqueue("Resume.pdf");
+            queue.Enqueue("Photo.jpg");
+
+            //1
+            ConsoleHelper.PrintQueue("Queue Content" , queue);
+            Console.WriteLine($"Queue Count = {queue.Count}");
+
+            //2
+            Console.WriteLine(queue.Peek());
+
+            //3
+            while (queue.Count > 0)
             {
-                 "ahmed@test.com", "AHMED@test.com", "sara@test.com", "Sara@Test.Com"
+                Console.WriteLine($"Printing: [{queue.Dequeue()}]");
+            }
 
-            };
-
-            Console.WriteLine(set.Count); //2 , StringComparer.OrdinalIgnoreCase makes it treat strings with different letter cases as equal
-
-            HashSet<int> SetA = [1, 2, 3 , 4 , 5];
-            HashSet<int> SetB = [4, 5 , 6 , 7 ,8];
-
-            var union = new HashSet<int>(SetA);
-            union.UnionWith(SetB);
-            ConsoleHelper.PrintHashSet("Union" , union);
-
-            var Intersec = new HashSet<int>(SetA);
-            Intersec.IntersectWith(SetB);
-            ConsoleHelper.PrintHashSet("Intersec", Intersec);
-
-
-            var Except = new HashSet<int>(SetA);
-            Except.ExceptWith(SetB);
-            ConsoleHelper.PrintHashSet("Except", Except);
-
-            HashSet<int> SetC = [1, 2];
-            Console.Write("[1,2] is subset of setA? ");
-            Console.WriteLine(SetC.IsSubsetOf(SetA));
+            //4
+            queue.TryDequeue(out string? result);
+            Console.WriteLine(result?? "null");
             #endregion
         }
     }
