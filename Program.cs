@@ -74,47 +74,77 @@ namespace ADV03
             #endregion
 
             #region Ex03
-            //1
-            Dictionary<string, string> phoneBook = new()
+            ////1
+            //Dictionary<string, string> phoneBook = new()
+            //{
+            //    {"Ahmed" ,"0102222222" },
+            //    {"Sara" , "010452365" },
+            //    {"Mohamed" , "010125478" } ,
+            //    {"Mahmoud" , "0103265445"}
+            //};
+
+            // //2
+            //phoneBook["Sama"] = "01056666448";
+
+            ////3
+            //try
+            //{
+            //    phoneBook.Add("Sara", "0122544499");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            ////4
+            //Console.WriteLine( phoneBook.TryAdd("Mahmoud", "010546666"));
+
+            ////5
+            //  if(!phoneBook.ContainsKey("Samy"))
+            //    Console.WriteLine("Samy doesn't exist");
+
+            //// 6
+            //if (phoneBook.TryGetValue("Samy", out string value))
+            //    Console.WriteLine(value);
+            //else
+            //    Console.WriteLine("Not Found");
+
+            //// 7
+            //Console.Write("All Keys : ");
+            //Console.WriteLine(string.Join("," , phoneBook.Keys));
+
+            //Console.Write("All Values : ");
+            //Console.WriteLine(string.Join(",", phoneBook.Values));
+            #endregion
+
+            #region Ex04
+            HashSet<string> set = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
-                {"Ahmed" ,"0102222222" },
-                {"Sara" , "010452365" },
-                {"Mohamed" , "010125478" } ,
-                {"Mahmoud" , "0103265445"}
+                 "ahmed@test.com", "AHMED@test.com", "sara@test.com", "Sara@Test.Com"
+
             };
 
-             //2
-            phoneBook["Sama"] = "01056666448";
+            Console.WriteLine(set.Count); //2 , StringComparer.OrdinalIgnoreCase makes it treat strings with different letter cases as equal
 
-            //3
-            try
-            {
-                phoneBook.Add("Sara", "0122544499");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            HashSet<int> SetA = [1, 2, 3 , 4 , 5];
+            HashSet<int> SetB = [4, 5 , 6 , 7 ,8];
 
-            //4
-            Console.WriteLine( phoneBook.TryAdd("Mahmoud", "010546666"));
+            var union = new HashSet<int>(SetA);
+            union.UnionWith(SetB);
+            ConsoleHelper.PrintHashSet("Union" , union);
 
-            //5
-              if(!phoneBook.ContainsKey("Samy"))
-                Console.WriteLine("Samy doesn't exist");
+            var Intersec = new HashSet<int>(SetA);
+            Intersec.IntersectWith(SetB);
+            ConsoleHelper.PrintHashSet("Intersec", Intersec);
 
-            // 6
-            if (phoneBook.TryGetValue("Samy", out string value))
-                Console.WriteLine(value);
-            else
-                Console.WriteLine("Not Found");
 
-            // 7
-            Console.Write("All Keys : ");
-            Console.WriteLine(string.Join("," , phoneBook.Keys));
+            var Except = new HashSet<int>(SetA);
+            Except.ExceptWith(SetB);
+            ConsoleHelper.PrintHashSet("Except", Except);
 
-            Console.Write("All Values : ");
-            Console.WriteLine(string.Join(",", phoneBook.Values));
+            HashSet<int> SetC = [1, 2];
+            Console.Write("[1,2] is subset of setA? ");
+            Console.WriteLine(SetC.IsSubsetOf(SetA));
             #endregion
         }
     }
