@@ -148,29 +148,58 @@ namespace ADV03
             #endregion
 
             #region Ex05
-            Queue<string> queue = new();
-            queue.Enqueue("Report.pdf");
-            queue.Enqueue("Invoice.pdf");
-            queue.Enqueue("Letter.docx");
-            queue.Enqueue("Resume.pdf");
-            queue.Enqueue("Photo.jpg");
+            //Queue<string> queue = new();
+            //queue.Enqueue("Report.pdf");
+            //queue.Enqueue("Invoice.pdf");
+            //queue.Enqueue("Letter.docx");
+            //queue.Enqueue("Resume.pdf");
+            //queue.Enqueue("Photo.jpg");
+
+            ////1
+            //ConsoleHelper.PrintQueue("Queue Content" , queue);
+            //Console.WriteLine($"Queue Count = {queue.Count}");
+
+            ////2
+            //Console.WriteLine(queue.Peek());
+
+            ////3
+            //while (queue.Count > 0)
+            //{
+            //    Console.WriteLine($"Printing: [{queue.Dequeue()}]");
+            //}
+
+            ////4
+            //queue.TryDequeue(out string? result);
+            //Console.WriteLine(result?? "null");
+            #endregion
+
+            #region Ex06
+            Stack<string> stack = new();
 
             //1
-            ConsoleHelper.PrintQueue("Queue Content" , queue);
-            Console.WriteLine($"Queue Count = {queue.Count}");
+            stack.Push("google.com");
+            stack.Push("github.com");
+            stack.Push("stackoverflow.com");
+            stack.Push("youtube.com");
+            stack.Push("claude.ai");
 
             //2
-            Console.WriteLine(queue.Peek());
+            Console.WriteLine($"Current Page : {stack.Peek()}");
+
 
             //3
-            while (queue.Count > 0)
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine($"Printing: [{queue.Dequeue()}]");
+                Console.WriteLine($"Leaving : {stack.Pop()}");
             }
 
             //4
-            queue.TryDequeue(out string? result);
-            Console.WriteLine(result?? "null");
+            Console.WriteLine($"\nCurrent Page after back: {stack.Peek()}");
+
+            //5
+            stack.Clear();
+            stack.TryPop(out var result);
+            Console.WriteLine(result?? "Stack is empty");
             #endregion
         }
     }

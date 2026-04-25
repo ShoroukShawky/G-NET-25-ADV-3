@@ -37,5 +37,11 @@ namespace ADV03
             Console.WriteLine($"{queueName} : [{string.Join(", ", items)}]");
 
         }
+
+        public static void PrintStack<T>(string stackName, Stack<T> items)
+        {
+            Console.WriteLine($"{stackName} : [{string.Join(", ", items)}]");
+
+        }
     }
 }
