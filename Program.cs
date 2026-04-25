@@ -1,4 +1,6 @@
-﻿namespace ADV03
+﻿using System.Collections.ObjectModel;
+
+namespace ADV03
 {
     internal class Program
     {
@@ -40,35 +42,79 @@
             #endregion
 
             #region Ex02
+            ////1
+            //SortedList<int, string> Leaderboard = new()
+            //{
+            //    {500 ,"Ahmed" },
+            //    {200 , "Sara" },
+            //    {800 ,"Ali" },
+            //    {350 , "Mona" }
+            //};
+
+            ////2 
+            //ConsoleHelper.PrintSortedList("List", Leaderboard);
+
+            ////3
+            //Console.WriteLine($"First key = {Leaderboard.First().Key}");
+            //Console.WriteLine($"First value = {Leaderboard.First().Value}");
+
+            ////4
+            //Console.Write("Contain score 500 ? ");
+            //Console.WriteLine(Leaderboard.ContainsKey(500));
+
+            ////5
+            //if (Leaderboard.TryGetValue(999, out string? value)) 
+            //   Console.WriteLine($"Player with score 999 : {value}");
+            //else
+            //    Console.WriteLine($"Player with score 999 not found");
+
+            ////6
+            //Leaderboard.Remove(200);
+            //ConsoleHelper.PrintSortedList("List", Leaderboard);
+            #endregion
+
+            #region Ex03
             //1
-            SortedList<int, string> Leaderboard = new()
+            Dictionary<string, string> phoneBook = new()
             {
-                {500 ,"Ahmed" },
-                {200 , "Sara" },
-                {800 ,"Ali" },
-                {350 , "Mona" }
+                {"Ahmed" ,"0102222222" },
+                {"Sara" , "010452365" },
+                {"Mohamed" , "010125478" } ,
+                {"Mahmoud" , "0103265445"}
             };
 
-            //2 
-            ConsoleHelper.PrintSortedList("List", Leaderboard);
+             //2
+            phoneBook["Sama"] = "01056666448";
 
             //3
-            Console.WriteLine($"First key = {Leaderboard.First().Key}");
-            Console.WriteLine($"First value = {Leaderboard.First().Value}");
+            try
+            {
+                phoneBook.Add("Sara", "0122544499");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             //4
-            Console.Write("Contain score 500 ? ");
-            Console.WriteLine(Leaderboard.ContainsKey(500));
+            Console.WriteLine( phoneBook.TryAdd("Mahmoud", "010546666"));
 
             //5
-            if (Leaderboard.TryGetValue(999, out string? value)) 
-               Console.WriteLine($"Player with score 999 : {value}");
-            else
-                Console.WriteLine($"Player with score 999 not found");
+              if(!phoneBook.ContainsKey("Samy"))
+                Console.WriteLine("Samy doesn't exist");
 
-            //6
-            Leaderboard.Remove(200);
-            ConsoleHelper.PrintSortedList("List", Leaderboard);
+            // 6
+            if (phoneBook.TryGetValue("Samy", out string value))
+                Console.WriteLine(value);
+            else
+                Console.WriteLine("Not Found");
+
+            // 7
+            Console.Write("All Keys : ");
+            Console.WriteLine(string.Join("," , phoneBook.Keys));
+
+            Console.Write("All Values : ");
+            Console.WriteLine(string.Join(",", phoneBook.Values));
             #endregion
         }
     }
