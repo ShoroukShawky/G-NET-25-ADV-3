@@ -14,6 +14,12 @@ namespace ADV03
 
         }
 
+        public static void PrintSortedList<T,T2>(string listName, SortedList<T,T2> items)
+        {
+            Console.WriteLine($"{listName} : {string.Join(", ", items)}");
+
+        }
+
         public static void PrintHashSet<T>(string setName, HashSet<T> items)
         {
             Console.WriteLine($"{setName} : [{string.Join(", ", items)}]");
